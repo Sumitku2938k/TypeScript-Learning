@@ -6,28 +6,28 @@
 // Enums
 // Any, Unknown, Never, Void, Null, Undefined
 Object.defineProperty(exports, "__esModule", { value: true });
-// let num: number = 42;
-// let str: string = "Hello, TypeScript!";
+let num = 42;
+let str = "Hello, TypeScript!";
 // Primitives and Reference Types
-// let a: number[] = [1,2,3,4,5];
-// let b: number[] = a;
-// b.pop();
-// console.log(a);
+let a = [1, 2, 3, 4, 5];
+let b = a;
+b.pop();
+console.log(a);
 // b ke aakhiri se no hata do i.e. b = [1,2,3,4]
 // so a ki value ye honi chahiye thi [1,2,3,4,5] but wo bhi change ho jayegi i.e. a = [1,2,3,4] 
 // because a and b dono same reference point kar rahe hai memory me. isliye jab b me change karenge to a me bhi change hoga. isliye reference types ko samajhna bahut jaruri hai. 
 // Reference Types -> {}, [], () etc.
 //Primitive Types
-// let a = 12;
-// a = 'Hello'; // Error: Type 'string' is not assignable to type 'number'.
+let a = 12;
+a = 'Hello'; // Error: Type 'string' is not assignable to type 'number'.
 // let abcd = false; //boolean type -> true or false
 // Arrays
-// let arr = [1, 2, 3, 4, 5, "Goutam"]; // TypeScript infers the type as (number | string)[]
-// let arr2 = [1, 2, 3, 4, 5, {name: "Goutam"}, {name: 12}]; // TypeScript infers the type as (number | {name: string} | {name: number}[]
-// let arr3: number[] = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as number[] so will give an error because "Goutam" is a string and cannot be assigned to a number type array.
-// let arr4: (number | string)[] = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as (number | string)[]
+let arr = [1, 2, 3, 4, 5, "Goutam"]; // TypeScript infers the type as (number | string)[]
+let arr2 = [1, 2, 3, 4, 5, { name: "Goutam" }, { name: 12 }]; // TypeScript infers the type as (number | {name: string} | {name: number}[]
+let arr3 = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as number[] so will give an error because "Goutam" is a string and cannot be assigned to a number type array.
+let arr4 = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as (number | string)[]
 // Tuples
-// let tuple: [number, string] = [1, "Hello"]; // A tuple is a fixed-length array where each element can have a different type. In this case, the first element is a number and the second element is a string.
+let tuple = [1, "Hello"]; // A tuple is a fixed-length array where each element can have a different type. In this case, the first element is a number and the second element is a string.
 // Enums - enumirations
 var UserRoles;
 (function (UserRoles) {
@@ -44,4 +44,40 @@ var StatusCodes;
     StatusCodes[StatusCodes["Error"] = 400] = "Error";
     StatusCodes[StatusCodes["Pending"] = 500] = "Pending";
 })(StatusCodes || (StatusCodes = {}));
+//Any -> kam try karna chahiye, kyunki isse type safety khatam ho jati hai. Any type ka use tab karna chahiye jab aapko pata nahi hai ki variable kis type ka hoga, lekin aapko us variable ke saath kuch operations perform karne hain.
+let anyVar; // The 'any' type allows you to assign any value to the variable, and it can be reassigned to a different type without any type checking. This can lead to potential runtime errors if not used carefully.
+anyVar = 42; // No error, anyVar is now a number
+anyVar = "Now I'm a string"; // No error, but can lead to issues later on if you try to perform operations that are not valid for the new type.
+//Unknown -> unknown type is a safer alternative to any. It represents any value but requires type checking before performing operations on it. This helps maintain type safety while still allowing flexibility.
+let unknownVar;
+unknownVar = 42; // No error, unknownVar is now a number
+unknownVar = "Now I'm a string"; // No error, but you cannot perform operations on unknownVar without first checking its type.
+if (typeof unknownVar === "string") { //Unknown type ke saath operations perform karne se pehle hume uski type check karni hoti hai. Is case me hum check kar rahe hai ki unknownVar ki type string hai ya nahi. Agar hai to hum uske upar string operations perform kar sakte hai.
+    console.log(unknownVar.toUpperCase()); // Now we can safely perform string operations on unknownVar after checking its type.
+}
+//Void -> void type is used to indicate that a function does not return any value. It is often used for functions that perform side effects, such as logging or modifying state, without returning a result.
+function logMessage() {
+    console.log("Hello, TypeScript!"); // This function logs a message to the console and does not return any value, hence the return type is void.
+}
+//Null -> null type represents the intentional absence of any object value. It is often used to indicate that a variable should not have a value or to reset a variable to an empty state.
+let nullableVar;
+nullableVar = "Hello"; // No error, nullableVar is now a string
+nullableVar = null; // No error, nullableVar is now null
+nullableVar = 12; // Error: Type 'number' is not assignable to type 'string | null'. This is because nullableVar can only be a string or null, and assigning a number violates this constraint.
+//Undefined -> undefined type represents the intentional absence of any value. It is often used to indicate that a variable has not been initialized or to reset a variable to an uninitialized state.
+let undefinedVar;
+undefinedVar = "Hello"; // No error, undefinedVar is now a string
+undefinedVar = undefined; // No error, undefinedVar is now undefined
+undefinedVar = 12; // Error: Type 'number' is not assignable to type 'string | undefined'. This is because undefinedVar can only be a string or undefined, and assigning a number violates this constraint.
+//Never -> never type represents values that never occur. It is often used to indicate that a function will never return or that a variable will never have a value. For example, a function that always throws an error or an infinite loop can be typed with never to indicate that it will never successfully complete.
+function throwError(message) {
+    throw new Error(message); // This function always throws an error and never returns a value, hence the return type is never.
+}
+function infiniteLoop() {
+    while (true) {
+        // This function runs an infinite loop and never returns a value, hence the return type is never.
+    }
+}
+infiniteLoop(); // Calling this function will result in an infinite loop, and it will never return a value.
+console.log("This line will never be reached."); // This line will never be executed because the infiniteLoop function never returns.
 //# sourceMappingURL=app.js.map
