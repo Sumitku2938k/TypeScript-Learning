@@ -5,8 +5,8 @@
 // Enums
 // Any, Unknown, Never, Void, Null, Undefined
 
-let num: number = 42;
-let str: string = "Hello, TypeScript!";
+// let num: number = 42;
+// let str: string = "Hello, TypeScript!";
 
 // Primitives and Reference Types
 // let a: number[] = [1,2,3,4,5];
@@ -34,4 +34,21 @@ let str: string = "Hello, TypeScript!";
 // let arr4: (number | string)[] = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as (number | string)[]
 
 // Tuples
-let tuple: [number, string] = [1, "Hello"]; // A tuple is a fixed-length array where each element can have a different type. In this case, the first element is a number and the second element is a string.
+// let tuple: [number, string] = [1, "Hello"]; // A tuple is a fixed-length array where each element can have a different type. In this case, the first element is a number and the second element is a string.
+
+// Enums - enumirations
+enum UserRoles { // Enums are a way to define a set of named constants. They can be numeric or string-based. In this case, we are defining a string-based enum for user roles.
+    Admin = "ADMIN",
+    User = "USER",
+    Guest = "GUEST",
+    SuperAdmin = "SUPER_ADMIN"
+}
+
+UserRoles.Admin; // "ADMIN"
+UserRoles.User; // "USER"
+
+enum StatusCodes { // Numeric enum where the values are auto-incremented starting from 0. So, StatusCodes.Success will be 0, StatusCodes.Error will be 1, and StatusCodes.Pending will be 2.
+    Success = 200,
+    Error = 400,
+    Pending = 500
+}

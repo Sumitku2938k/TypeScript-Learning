@@ -6,8 +6,8 @@
 // Enums
 // Any, Unknown, Never, Void, Null, Undefined
 Object.defineProperty(exports, "__esModule", { value: true });
-let num = 42;
-let str = "Hello, TypeScript!";
+// let num: number = 42;
+// let str: string = "Hello, TypeScript!";
 // Primitives and Reference Types
 // let a: number[] = [1,2,3,4,5];
 // let b: number[] = a;
@@ -27,5 +27,21 @@ let str = "Hello, TypeScript!";
 // let arr3: number[] = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as number[] so will give an error because "Goutam" is a string and cannot be assigned to a number type array.
 // let arr4: (number | string)[] = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as (number | string)[]
 // Tuples
-let tuple = [1, "Hello"]; // A tuple is a fixed-length array where each element can have a different type. In this case, the first element is a number and the second element is a string.
+// let tuple: [number, string] = [1, "Hello"]; // A tuple is a fixed-length array where each element can have a different type. In this case, the first element is a number and the second element is a string.
+// Enums - enumirations
+var UserRoles;
+(function (UserRoles) {
+    UserRoles["Admin"] = "ADMIN";
+    UserRoles["User"] = "USER";
+    UserRoles["Guest"] = "GUEST";
+    UserRoles["SuperAdmin"] = "SUPER_ADMIN";
+})(UserRoles || (UserRoles = {}));
+UserRoles.Admin; // "ADMIN"
+UserRoles.User; // "USER"
+var StatusCodes;
+(function (StatusCodes) {
+    StatusCodes[StatusCodes["Success"] = 200] = "Success";
+    StatusCodes[StatusCodes["Error"] = 400] = "Error";
+    StatusCodes[StatusCodes["Pending"] = 500] = "Pending";
+})(StatusCodes || (StatusCodes = {}));
 //# sourceMappingURL=app.js.map
