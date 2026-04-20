@@ -22,8 +22,10 @@ let str = "Hello, TypeScript!";
 // a = 'Hello'; // Error: Type 'string' is not assignable to type 'number'.
 // let abcd = false; //boolean type -> true or false
 // Arrays
-let arr = [1, 2, 3, 4, 5, "Goutam"]; // TypeScript infers the type as (number | string)[]
-let arr2 = [1, 2, 3, 4, 5, { name: "Goutam" }, { name: 12 }]; // TypeScript infers the type as (number | {name: string} | {name: number}[]
-let arr3 = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as number[] so will give an error because "Goutam" is a string and cannot be assigned to a number type array.
-let arr4 = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as (number | string)[]
+// let arr = [1, 2, 3, 4, 5, "Goutam"]; // TypeScript infers the type as (number | string)[]
+// let arr2 = [1, 2, 3, 4, 5, {name: "Goutam"}, {name: 12}]; // TypeScript infers the type as (number | {name: string} | {name: number}[]
+// let arr3: number[] = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as number[] so will give an error because "Goutam" is a string and cannot be assigned to a number type array.
+// let arr4: (number | string)[] = [1, 2, 3, 4, 5, "Goutam"]; // Explicitly specifying the type as (number | string)[]
+// Tuples
+let tuple = [1, "Hello"]; // A tuple is a fixed-length array where each element can have a different type. In this case, the first element is a number and the second element is a string.
 //# sourceMappingURL=app.js.map
