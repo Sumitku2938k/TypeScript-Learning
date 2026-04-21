@@ -78,6 +78,15 @@ function infiniteLoop() {
         // This function runs an infinite loop and never returns a value, hence the return type is never.
     }
 }
-infiniteLoop(); // Calling this function will result in an infinite loop, and it will never return a value.
+// infiniteLoop(); // Calling this function will result in an infinite loop, and it will never return a value.
 console.log("This line will never be reached."); // This line will never be executed because the infiniteLoop function never returns.
+// Intro to Type Inference & Type Annotations
+// Inference -> TypeScript can automatically infer the type of a variable based on its initial value. For example, if you declare a variable and assign it a number, TypeScript will infer that the variable is of type number.
+let c = 42; // TypeScript infers the type of 'c' as number based on the assigned value.
+// Annotations -> Type annotations allow you to explicitly specify the type of a variable, function parameter, or return value. This can be useful for providing additional information to the compiler and for improving code readability.
+let d = "Hello, TypeScript!"; // Here we are explicitly annotating the type of 'd' as string.
+let e;
+e = 42; // No error, 'e' can be a number
+e = true; // No error, 'e' can be a boolean
+e = "Hello"; // No error, 'e' can be a string
 //# sourceMappingURL=app.js.map
