@@ -99,4 +99,13 @@ function getUserInfo(user) {
     return `Name: ${user.name}, Age: ${user.age}, Email: ${user.email}`;
 }
 getUserInfo({ name: "Goutam", age: 25, email: "goutam@gmail.com" }); // Name: Goutam, Age: 25, Email: goutam@gmail.com
+function getAdminInfo(obj) {
+    return `Name: ${obj.name}, Age: ${obj.age}, Email: ${obj.email}, Is Admin: ${obj.isAdmin}`;
+}
+getAdminInfo({ name: "Goutam", age: 25, email: "goutam@gmail.com", isAdmin: true }); // Name: Goutam, Age: 25, Email: goutam@gmail.com, Is Admin: true
+//Two interfaces with the same name will be merged together by TypeScript. This means that the Abcd interface will have both the email and name properties, and any object of type Abcd must have both of these properties with their respective types.
+function getAbcdInfo(obj) {
+    return `Name: ${obj.name}, Email: ${obj.email}`;
+}
+getAbcdInfo({ name: "Goutam", email: "goutam@gmail.com" });
 //# sourceMappingURL=app.js.map

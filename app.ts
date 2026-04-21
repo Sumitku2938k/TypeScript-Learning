@@ -130,3 +130,25 @@ function getUserInfo(user: User): string { // user parameter ka type User interf
     return `Name: ${user.name}, Age: ${user.age}, Email: ${user.email}`; 
 }   
 getUserInfo({name: "Goutam", age: 25, email: "goutam@gmail.com"}); // Name: Goutam, Age: 25, Email: goutam@gmail.com
+
+//Extended Interface
+interface Admin extends User { // Admin interface User interface ko extend kar raha hai, yani ki Admin interface me User interface ke saare properties honge plus kuch additional properties bhi ho sakti hai.
+    isAdmin: boolean;
+}
+
+function getAdminInfo(obj: Admin): string { // obj parameter ka type Admin interface ke according hona chahiye, yani ki admin object me User interface ke saare properties honi chahiye plus isAdmin property bhi honi chahiye aur unka type bhi Admin interface ke according hona chahiye.
+    return `Name: ${obj.name}, Age: ${obj.age}, Email: ${obj.email}, Is Admin: ${obj.isAdmin}`;
+}   
+getAdminInfo({name: "Goutam", age: 25, email: "goutam@gmail.com", isAdmin: true}); // Name: Goutam, Age: 25, Email: goutam@gmail.com, Is Admin: true
+
+interface Abcd {
+    email: string;
+}
+interface Abcd {
+    name: string;
+}
+//Two interfaces with the same name will be merged together by TypeScript. This means that the Abcd interface will have both the email and name properties, and any object of type Abcd must have both of these properties with their respective types.
+function getAbcdInfo(obj: Abcd): string { // obj parameter ka type Abcd interface ke according hona chahiye
+    return `Name: ${obj.name}, Email: ${obj.email}`;
+}   
+getAbcdInfo({name: "Goutam", email: "goutam@gmail.com"});
