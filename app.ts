@@ -108,3 +108,9 @@ let e: number | boolean | string;
 e = 42; // No error, 'e' can be a number
 e = true; // No error, 'e' can be a boolean
 e = "Hello"; // No error, 'e' can be a string
+
+// Type Annotations
+let f: boolean;
+function isEven(num: number): boolean {
+    return num % 2 === 0;
+}

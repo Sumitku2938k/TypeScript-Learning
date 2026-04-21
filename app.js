@@ -89,4 +89,9 @@ let e;
 e = 42; // No error, 'e' can be a number
 e = true; // No error, 'e' can be a boolean
 e = "Hello"; // No error, 'e' can be a string
+// Type Annotations
+let f;
+function isEven(num) {
+    return num % 2 === 0;
+}
 //# sourceMappingURL=app.js.map
