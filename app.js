@@ -94,4 +94,9 @@ let f;
 function isEven(num) {
     return num % 2 === 0;
 }
+//user object mei shakal uski User model ki tarah honi chahiye
+function getUserInfo(user) {
+    return `Name: ${user.name}, Age: ${user.age}, Email: ${user.email}`;
+}
+getUserInfo({ name: "Goutam", age: 25, email: "goutam@gmail.com" }); // Name: Goutam, Age: 25, Email: goutam@gmail.com
 //# sourceMappingURL=app.js.map

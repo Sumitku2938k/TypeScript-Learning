@@ -114,3 +114,19 @@ let f: boolean;
 function isEven(num: number): boolean {
     return num % 2 === 0;
 }
+
+// Introduction to Interfaces and Type Aliases
+// Interface ka kam hota hai object ka structure define karna, yani ki object ke properties aur unke types ko specify karna. 
+// Type alias bhi similar kaam karta hai, lekin wo kisi bhi type ko represent kar sakta hai, na ki sirf object structure ko. i.e. Khud ke type create karna.
+
+interface User { //basically function mei object pass karne kke liye us object ke structure ko define karna, yani ki us object me kaun kaun se properties honi chahiye aur unka type kya hona chahiye, iske liye hum interface ka use karte hai.
+    name: string;
+    age: number;
+    email: string;
+    gender?: string; // Optional property, yani ki user object me gender property ho bhi sakti hai aur nahi bhi, lekin agar ho to uska type string hona chahiye.
+}
+//user object mei shakal uski User model ki tarah honi chahiye
+function getUserInfo(user: User): string { // user parameter ka type User interface ke according hona chahiye, yani ki user object me name, age, aur email properties honi chahiye aur unka type bhi User interface ke according hona chahiye.
+    return `Name: ${user.name}, Age: ${user.age}, Email: ${user.email}`; 
+}   
+getUserInfo({name: "Goutam", age: 25, email: "goutam@gmail.com"}); // Name: Goutam, Age: 25, Email: goutam@gmail.com
