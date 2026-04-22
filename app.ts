@@ -152,3 +152,17 @@ function getAbcdInfo(obj: Abcd): string { // obj parameter ka type Abcd interfac
     return `Name: ${obj.name}, Email: ${obj.email}`;
 }   
 getAbcdInfo({name: "Goutam", email: "goutam@gmail.com"});
+
+//Fundamentals of Type Alias
+type sankhya = number; //Khud ka type banana
+let g: sankhya;
+
+type value = string | number | null;
+let h: value;
+
+type arg = string | null;
+function abcd(obj: arg){
+
+}
+
+abcd("Hello"); // No error, 'obj' can be a string

@@ -108,4 +108,9 @@ function getAbcdInfo(obj) {
     return `Name: ${obj.name}, Email: ${obj.email}`;
 }
 getAbcdInfo({ name: "Goutam", email: "goutam@gmail.com" });
+let g;
+let h;
+function abcd(obj) {
+}
+abcd("Hello"); // No error, 'obj' can be a string
 //# sourceMappingURL=app.js.map
