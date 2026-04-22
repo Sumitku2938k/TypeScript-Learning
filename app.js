@@ -113,4 +113,12 @@ let h;
 function abcd(obj) {
 }
 abcd("Hello"); // No error, 'obj' can be a string
+//Intersection Types
+let i; // Union type, yani ki 'i' variable me string ya number dono me se koi bhi type ka value assign ho sakta hai.
+let j; // Intersection type, yani ki 'j' variable me aise type ka value assign ho sakta hai jo string bhi ho aur number bhi ho, lekin aise koi type exist nahi karta isliye 'j' variable me koi value assign nahi ho sakti.
+function abcd1(a) {
+    console.log(`Name: ${a.name}, Email: ${a.email}`);
+    a.getDetails(a.name);
+}
+//2nd difference is that type ka kam hai type create karna like number, string, boolean, etc. jabki interface ka kam hai object ke structure ko define karna, yani ki object ke properties aur unke types ko specify karna. 
 //# sourceMappingURL=app.js.map

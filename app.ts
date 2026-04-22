@@ -166,3 +166,24 @@ function abcd(obj: arg){
 }
 
 abcd("Hello"); // No error, 'obj' can be a string
+
+//Intersection Types
+let i: string | number; // Union type, yani ki 'i' variable me string ya number dono me se koi bhi type ka value assign ho sakta hai.
+let j: string & number; // Intersection type, yani ki 'j' variable me aise type ka value assign ho sakta hai jo string bhi ho aur number bhi ho, lekin aise koi type exist nahi karta isliye 'j' variable me koi value assign nahi ho sakti.
+
+type User1 = {
+    name: string;
+    email: string;
+}
+type Admin1 = User1 & {
+    getDetails(user1: string): void;
+}
+function abcd1(a: Admin1): void {
+    console.log(`Name: ${a.name}, Email: ${a.email}`);
+    a.getDetails(a.name);
+}
+
+type abcd = number; //1st difference in intersection and type alias is that type alias cannot be re-declared with the same name, while interfaces can be merged together if they have the same name. In this case, we are trying to declare a type alias named 'abcd' again, which will result in an error because it creates a duplicate identifier. Each type alias must have a unique name to avoid conflicts in the type system.    
+type abcd = string; // Error: Duplicate identifier 'abcd'. This is because we cannot declare two type aliases with the same name, as it creates a conflict in the type system. Each type alias must have a unique name to avoid ambiguity and ensure that the correct type is used when referenced.
+
+//2nd difference is that type ka kam hai type create karna like number, string, boolean, etc. jabki interface ka kam hai object ke structure ko define karna, yani ki object ke properties aur unke types ko specify karna. 
