@@ -1,8 +1,41 @@
-//Fundamental of Classes and Objects
-class Device {
-    name = "lg";
-    price = 12000;
-    category = "digital";
-}
+// Classes and Objects: Constructor
 
-let d1 = new Device()
+// ek esi machine jo ki produce kr rhi hai final consumable product -> Constructor
+// class BottleMaker {
+//     constructor (public name: string, public price: number) {}
+// }
+
+// let b1 = new BottleMaker("Milton",1200);
+
+class HumanMaker {
+    age = 0; // default value i.e. Jo baat hum pehle se jante hai ki har human ki age 0 se start hoti hai, toh hum usko yaha pe define kr sakte hai. Aur isko constructor ke andar define krne ki zarurat nahi hai.
+    constructor (public name: string, public gender: string) {}
+}
+new HumanMaker("Goutam", "Male"); //Constructor sirf wo mang raha hai joo hame set karna hai
+
+class Music {
+    constructor (public name: string, public artist: string, public thumbnail: string = "somethumbnail.jpg", public length: number, public available: boolean){ 
+        if(!thumbnail){
+            this.thumbnail = "somethumbnail.jpg";
+        }
+    }
+}
+let m1 = new Music("Chal Chaiya chhaiya", "Goutam", "", 1200, false);
+let m2 = new Music("Dekh Dekh Dekh Yaha Waha Na Fekh, Dekh Failegi Beemari Hoga Sabka Bura Haal", "Nagar Paalika", "Kachra.png", 2000, true);
+
+//Same kam kar raha hai but lines of code bohot jayada hai as compared to pehle wale tarike mei
+// class Music {
+//     public name;
+//     public artist;
+//     public thumbnail;
+//     public length;
+//     public available;
+//     constructor ( name: string, artist: string, thumbnail: string = "somethumbnail.jpg", length: number, available: boolean){
+//         this.name = name;
+//         this.artist = artist;
+//         this.thumbnail = thumbnail;
+//         this.length = length;
+//         this.available = available;
+//     }
+// }
+
