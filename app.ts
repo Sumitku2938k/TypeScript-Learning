@@ -1,18 +1,14 @@
-// Classes & Objects: Protected Access Modifier
+// Classes & Objects: Optional Properties
 
-// Protected access modifier allows a class member to be accessible within the class and its subclasses, but not from outside the class hierarchy. 
-// In this example, we have a base class `BottleMaker` with a protected property `name`. The subclass `MetalBottleMaker` can access and modify the `name` property through the `changeName` method, but it cannot be accessed directly from an instance of `MetalBottleMaker`.
-class BottleMaker {
-    protected name = "Milton";
-}
-class MetalBottleMaker extends BottleMaker {
-    public material = "metal";
+//readonly properties can only be assigned during initialization or in the constructor. Once assigned, they cannot be changed.
+class User {
+    constructor(public readonly name: string) {}
 
     changeName() {
-        this.name = "some other name";
+        this.name = "John"; // Error: Cannot assign to 'name' because it is a read-only property.
     }
 }
 
-let b1 = new MetalBottleMaker();
-b1.changeName();
-// b1.name = "another name"; // Error: Property 'name' is protected and only accessible within class 'BottleMaker' and its subclasses.
+let u1 = new User("Alice");
+console.log(u1.name); // Output: Alice
+u1.changeName(); // Name change ho to jayega but error dikhayega because name is readonly.
