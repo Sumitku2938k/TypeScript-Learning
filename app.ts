@@ -1,49 +1,18 @@
-// Classes & Objects: Public & Private Access Modifier
+// Classes & Objects: Protected Access Modifier
+
+// Protected access modifier allows a class member to be accessible within the class and its subclasses, but not from outside the class hierarchy. 
+// In this example, we have a base class `BottleMaker` with a protected property `name`. The subclass `MetalBottleMaker` can access and modify the `name` property through the `changeName` method, but it cannot be accessed directly from an instance of `MetalBottleMaker`.
 class BottleMaker {
-    constructor(public name: string, private material: string){ 
-
-    }
-    changing(){
-        this.material = "Plastic";
-    }
-
+    protected name = "Milton";
 }
-let b1 = new BottleMaker("Milton", "Metal");
-b1.name = "hululu"; //public property ki chijo ko class ke andar ya bahar kahi bhi change kar sakte hai  
-// b1.material = "Hul"; //private property ko change kar kar to sakte hai but ye error phir  bhi dikhayega
-b1.changing();
+class MetalBottleMaker extends BottleMaker {
+    public material = "metal";
 
-//Private ka variable sirf class ke andar hi accessible hai iske bahar accessible nahi hai
-
-// class LunchMaker {
-//     constructor(public name: string){ }
-// }
-
-// class MetalLunchMaker extends LunchMaker {
-//     constructor(name: string){
-//         super(name);
-//     }
-//     getValue(){
-//         console.log(this.name);
-//     }
-// }
-
-// let l1 = new MetalLunchMaker("Milton");
-// l1.getValue();
-
-class LunchMaker {
-    private halua: string = "halua";
-    constructor(public name: string){ }
-}
-
-class MetalLunchMaker extends LunchMaker {
-    constructor(name: string){ 
-        super(name);
-    }
-    getValue(){
-        console.log(this.name, this.halua); //halua is private so using it will show an error but will work
+    changeName() {
+        this.name = "some other name";
     }
 }
 
-let l1 = new MetalLunchMaker("Milton");
-l1.getValue();
+let b1 = new MetalBottleMaker();
+b1.changeName();
+// b1.name = "another name"; // Error: Property 'name' is protected and only accessible within class 'BottleMaker' and its subclasses.
