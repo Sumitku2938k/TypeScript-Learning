@@ -1,14 +1,12 @@
-// Classes & Objects: Optional Properties
-
-//readonly properties can only be assigned during initialization or in the constructor. Once assigned, they cannot be changed.
+// Classes & Objects: Parameter Properties
 class User {
-    constructor(public readonly name: string) {}
+    constructor(public name: string, public age: number, public gender?: string) { // The "?" indicates that the "gender" parameter is optional
 
-    changeName() {
-        this.name = "John"; // Error: Cannot assign to 'name' because it is a read-only property.
-    }
+    }   
 }
 
-let u1 = new User("Alice");
-console.log(u1.name); // Output: Alice
-u1.changeName(); // Name change ho to jayega but error dikhayega because name is readonly.
+let u1 = new User("Alice", 30, "Female");
+let u2 = new User("Bob", 25);
+
+console.log(u1);
+console.log(u2);

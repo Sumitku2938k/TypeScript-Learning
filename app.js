@@ -1,17 +1,18 @@
 "use strict";
-// Classes & Objects: Optional Properties
-Object.defineProperty(exports, "__esModule", { value: true });
-//readonly properties can only be assigned during initialization or in the constructor. Once assigned, they cannot be changed.
+// Object.defineProperty(exports, "__esModule", { value: true });
+// Classes & Objects: Parameter Properties
 class User {
     name;
-    constructor(name) {
+    age;
+    gender;
+    constructor(name, age, gender) {
         this.name = name;
-    }
-    changeName() {
-        this.name = "John"; // Error: Cannot assign to 'name' because it is a read-only property.
+        this.age = age;
+        this.gender = gender;
     }
 }
-let u1 = new User("Alice");
-console.log(u1.name); // Output: Alice
-u1.changeName(); // Name change ho to jayega but error dikhayega because name is readonly.
+let u1 = new User("Alice", 30, "Female");
+let u2 = new User("Bob", 25);
+console.log(u1);
+console.log(u2);
 //# sourceMappingURL=app.js.map
