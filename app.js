@@ -1,18 +1,31 @@
 "use strict";
-// Object.defineProperty(exports, "__esModule", { value: true });
-// Classes & Objects: Parameter Properties
+// Classes & Objects: Getters & Setters
+Object.defineProperty(exports, "__esModule", { value: true });
+//Getter -> Class ke aandar se ek essa method jo value nikal ke de
+//Setter -> EK essa method jo hamse value le aur class ke andar ki value ko change kar de
+// class User {
+//     constructor(public name: string, public age: number){ }
+//     getName(){
+//         return this.name;
+//     }
+//     setName(value: string){
+//         this.name = value;
+//     }
+// }
 class User {
-    name;
+    _name;
     age;
-    gender;
-    constructor(name, age, gender) {
-        this.name = name;
+    constructor(_name, age) {
+        this._name = _name;
         this.age = age;
-        this.gender = gender;
+    }
+    get name() {
+        return this._name;
+    }
+    set name(value) {
+        this._name = value;
     }
 }
-let u1 = new User("Alice", 30, "Female");
-let u2 = new User("Bob", 25);
-console.log(u1);
-console.log(u2);
+let u1 = new User("Goutam", 21);
+console.log(u1.name);
 //# sourceMappingURL=app.js.map
