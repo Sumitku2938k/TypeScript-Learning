@@ -1,12 +1,23 @@
-// Classes & Objects: Static Members
+// Classes & Objects: Abstract Classes
 
-class Shery {
-    static version = 1.0;
+//Ped(tree) -> Absolute Concept
+//Mango tree, Banana Tree -> implementation of the concept
 
-    static getRandomNumber(){
-        return Math.random();
+class Payment { //Essentials/must for every payment  
+    constructor(protected amount: number, protected account: number) {}
+    isPaymentValid(amount: number){
+        return this.amount > 0;
     }
 }
 
-//let sh1 = new Shery(); -> No need to do this now due to static members bcz it doesn't contain anything
-//Properties ya methods, class ke bahar use ho sakte hai bina instance banaye i.e new kar ke jo karte hai 
+class CokkingEssentials {
+    constructor(protected gas: number, public gasKaName: string) {}
+}
+
+class Sabji extends CokkingEssentials{
+
+}
+
+class Cake extends CokkingEssentials{
+    
+}
