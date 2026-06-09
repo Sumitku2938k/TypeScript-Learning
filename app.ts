@@ -1,31 +1,12 @@
-// Classes & Objects: Getters & Setters
+// Classes & Objects: Static Members
 
-// Getter -> Class ke aandar se ek essa method jo value nikal ke de
-// Setter -> EK essa method jo hamse value le aur class ke andar ki value ko change kar de
+class Shery {
+    static version = 1.0;
 
-// class User {
-//     constructor(public name: string, public age: number){ }
-
-//     getName(){
-//         return this.name;
-//     }
-
-//     setName(value: string){
-//         this.name = value;
-//     }
-// }
-
-class User {
-    constructor(public _name: string, public age: number){ }
-
-    get name(){
-        return this._name;
-    }
-
-    set name(value: string){
-        this._name = value;
+    static getRandomNumber(){
+        return Math.random();
     }
 }
-let u1 = new User("Goutam", 21);
 
-console.log(u1.name)
+//let sh1 = new Shery(); -> No need to do this now due to static members bcz it doesn't contain anything
+//Properties ya methods, class ke bahar use ho sakte hai bina instance banaye i.e new kar ke jo karte hai 
