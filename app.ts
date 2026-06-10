@@ -1,23 +1,31 @@
-// Classes & Objects: Abstract Classes
+//Introduction to Functions
 
-//Ped(tree) -> Absolute Concept
-//Mango tree, Banana Tree -> implementation of the concept
-
-class Payment { //Essentials/must for every payment  
-    constructor(protected amount: number, protected account: number) {}
-    isPaymentValid(amount: number){
-        return this.amount > 0;
-    }
+function abcd(): string { // O/P -> String Type 
+    return "Hey!";
 }
 
-class CokkingEssentials {
-    constructor(protected gas: number, public gasKaName: string) {}
-}
-
-class Sabji extends CokkingEssentials{
+function xyz(): void {
 
 }
 
-class Cake extends CokkingEssentials{
-    
+function abcdef(name: string, age: number, cb: (arg: string) => void){ // Here cb is Call Back Function and is returning nothing when function call
+    cb("hey");
 }
+
+abcdef("goutam", 20, (arg: string) => {
+    console.log("Goutam");
+    console.log(arg);
+})
+
+function details(name: string, age: number, gender?: string){ //Gender becomes optional parameter due to ?
+
+}
+
+details("Goutam", 20, "Male");
+details("Lagbataq", 19); //Without Gender parameter
+
+function details1(name: string, age: number, gender: string = "Not to be disclosed"){ //Gender becomes default parameter 
+    console.log(name, age, gender);
+}
+
+details1("harsh", 20);

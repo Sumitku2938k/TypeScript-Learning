@@ -1,24 +1,23 @@
-// Classes & Objects: Abstract Classes
-//Ped(tree) -> Absolute Concept
-//Mango tree, Banana Tree -> implementation of the concept
-class Payment {
-    constructor(amount, account) {
-        this.amount = amount;
-        this.account = account;
-    }
-    isPaymentValid(amount) {
-        return this.amount > 0;
-    }
+//Introduction to Functions
+function abcd() {
+    return "Hey!";
 }
-class CokkingEssentials {
-    constructor(gas, gasKaName) {
-        this.gas = gas;
-        this.gasKaName = gasKaName;
-    }
+function xyz() {
 }
-class Sabji extends CokkingEssentials {
+function abcdef(name, age, cb) {
+    cb("hey");
 }
-class Cake extends CokkingEssentials {
+abcdef("goutam", 20, (arg) => {
+    console.log("Goutam");
+    console.log(arg);
+});
+function details(name, age, gender) {
 }
+details("Goutam", 20, "Male");
+details("Lagbataq", 19); //Without Gender parameter
+function details1(name, age, gender = "Not to be disclosed") {
+    console.log(name, age, gender);
+}
+details1("harsh", 20);
 export {};
 //# sourceMappingURL=app.js.map
