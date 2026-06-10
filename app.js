@@ -1,23 +1,14 @@
-//Introduction to Functions
-function abcd() {
-    return "Hey!";
+//Rest Functions
+// ... rest/spread
+//Function ke parameter mein agar ... lagaya to aap waha par saare diye gaye arguments ko ek hi variable mein as an array rakh rahe ho 
+function sum(...arr) {
+    console.log(arr);
 }
-function xyz() {
+sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); //sabke liye arguments banane ki jagha unko ek array mei kar diya jayega (Lots of parameters in one)
+function friends(...args) {
+    console.log(args);
+    console.log(args[2]);
 }
-function abcdef(name, age, cb) {
-    cb("hey");
-}
-abcdef("goutam", 20, (arg) => {
-    console.log("Goutam");
-    console.log(arg);
-});
-function details(name, age, gender) {
-}
-details("Goutam", 20, "Male");
-details("Lagbataq", 19); //Without Gender parameter
-function details1(name, age, gender = "Not to be disclosed") {
-    console.log(name, age, gender);
-}
-details1("harsh", 20);
+friends("aman", "abhay", "sumit");
 export {};
 //# sourceMappingURL=app.js.map
