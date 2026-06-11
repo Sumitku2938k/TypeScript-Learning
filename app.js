@@ -1,14 +1,15 @@
-//Rest Functions
-// ... rest/spread
-//Function ke parameter mein agar ... lagaya to aap waha par saare diye gaye arguments ko ek hi variable mein as an array rakh rahe ho 
-function sum(...arr) {
-    console.log(arr);
+//Function Overloading
+function abcd(a, b) {
+    if (typeof a === "string" && b === undefined) {
+        console.log("Hey!");
+    }
+    if (typeof a === "string" && typeof b === "number") {
+        return 123;
+    }
+    else
+        throw new Error("Something is wrong");
 }
-sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); //sabke liye arguments banane ki jagha unko ek array mei kar diya jayega (Lots of parameters in one)
-function friends(...args) {
-    console.log(args);
-    console.log(args[2]);
-}
-friends("aman", "abhay", "sumit");
+abcd("Hello"); // Hey!
+console.log(abcd("Hello", 123)); // 123
 export {};
 //# sourceMappingURL=app.js.map
