@@ -1,21 +1,43 @@
-//Type Assertion
+//Type Guards -> Type Narrowing
 
-//Iska mtlb batana TS ko ki particular cheej ka type kya hai, ye aap tab karte ho jab aap TS se jayada us value ka type jaante ho
+function abcd(arg: string | number | any) {
+    if (typeof arg === "number") {
+        //Will show all the methods for number data type
+        return "number";
+    }
+    else if (typeof arg === "string") {
+        //Will show all the methods for string data type
+        return "string";
+    }
+    else {
+        throw new Error("Invalid argument type");
+    }
+}
 
-//Syntax: <type>value or value as type
+console.log(abcd(12));
+console.log(abcd("Hi!"));
+//abcd(true); -> will show an error
 
-let a: any = 12;
-(<number>a) //You will get all methods that should be in a number type
+class TvKaRemote {
+    switch_Tv_Off() {
+        console.log("Switching off TV");
+    }
+}
 
-let b: any = "Hello World";
-(b as string) //You will get all methods that should be in a string type
+class CarKaRemote {
+    switch_Car_Off() {
+        console.log("Switching off Car");
+    }
+}
 
-//Type Casting 
-let c = Number("12"); // Here converting the type of c which is string to a number
-console.log(typeof c);
+const tv = new TvKaRemote();
+const car =  new CarKaRemote();
 
-// Non-null assertion operator
-let d: null | undefined | string;
-d = "Hi!";
-
-d! // ! guarantees that this value can never be null or undefined for sure
+function switchOffKaro(device: TvKaRemote | CarKaRemote){
+    if(device instanceof TvKaRemote){
+        device.switch_Tv_Off();
+    }
+    else if(device instanceof CarKaRemote){
+        device.switch_Car_Off();
+    }
+}

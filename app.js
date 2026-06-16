@@ -1,11 +1,39 @@
-//Type Assertion
-//Iska mtlb batana TS ko ki particular cheej ka type kya hai, ye aap tab karte ho jab aap TS se jayada us value ka type jaante ho
-//Syntax: <type>value or value as type
-let a = 12;
-a; //You will get all methods that should be in a number type
-let b = "Hello World";
-b; //You will get all methods that should be in a string type
-let c = Number("12"); //Type Casting -> Here converting the type of c which is string to a number
-console.log(typeof c);
+//Type Guards -> Type Narrowing
+function abcd(arg) {
+    if (typeof arg === "number") {
+        //Will show all the methods for number data type
+        return "number";
+    }
+    else if (typeof arg === "string") {
+        //Will show all the methods for string data type
+        return "string";
+    }
+    else {
+        throw new Error("Invalid argument type");
+    }
+}
+console.log(abcd(12));
+console.log(abcd("Hi!"));
+//abcd(true); -> will show an error
+class TvKaRemote {
+    switch_Tv_Off() {
+        console.log("Switching off TV");
+    }
+}
+class CarKaRemote {
+    switch_Car_Off() {
+        console.log("Switching off Car");
+    }
+}
+const tv = new TvKaRemote();
+const car = new CarKaRemote();
+function switchOffKaro(device) {
+    if (device instanceof TvKaRemote) {
+        device.switch_Tv_Off();
+    }
+    else if (device instanceof CarKaRemote) {
+        device.switch_Car_Off();
+    }
+}
 export {};
 //# sourceMappingURL=app.js.map
